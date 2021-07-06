@@ -1,0 +1,12 @@
+Data formatting for interns and hunter,,,,,,
+,,,,,,
+Feature Code(Partition Key),Attribute # ,Attribute type,Dropdown Options,format,Required,Data Type
+Wells,1,date,,mm/dd/yyyy,yes,date
+,2,location,Charleston,integer,yes,int
+,,,Morgantowm,,,
+,,,Fayetteville,,,
+,,,Huntington,,,
+,,,Fairmont,,,
+,3,Type,Gas ,string (limit 400 characters),yes,string
+,,,Oil,,,
+,4,Comment ,,string (limit 400 characters),yes ,string
