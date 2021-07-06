@@ -5,7 +5,7 @@ class features {
         });
     }
 
-    constructor() {
+    constructor(feature, attributeNumber, attributeType, location, date) {
         this.feature = feature;
         this.attributeNumber = attributeNumber;
         this.attributeType = attributeType;
@@ -14,35 +14,35 @@ class features {
     }
     //Get methods for created objects
     getFeature() {
-        return '${this.feature}';
+        return this.feature;
     }
     getAttributeNumber() {
-        return '${this.attributeNumber}';
+        return this.attributeNumber;
     }
     getAttributeType() {
-        return '${this.attributeType}';
+        return this.attributeType;
     }
     getLocation() {
-        return '${this.location}';
+        return this.location;
     }
     getDate() {
-        return '${this.date}';
+        return this.date;
     }
     // Setter methods for created objects
     setFeature(feature) {
-        return this.feature = feature;
+        this.feature = feature;
     }
     setAttributeNumber(attributeNumber) {
-        return this.attributeNumber = attributeNumber;
+        this.attributeNumber = attributeNumber;
     }
     setAttributeType(attributeType) {
-        return this.attributeType = attributeType;
+        this.attributeType = attributeType;
     }
     setLocation(location) {
-        return this.location = location;
+        this.location = location;
     }
     setDate(date) {
-        return this.date = date;
+        this.date = date;
     }
 }
 
