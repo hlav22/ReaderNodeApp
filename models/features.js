@@ -5,44 +5,39 @@ class features {
         });
     }
 
-    constructor(feature, attributeNumber, attributeType, location, date) {
-        this.feature = feature;
-        this.attributeNumber = attributeNumber;
-        this.attributeType = attributeType;
-        this.location = location;
+    constructor(date, location, type, comment) {
         this.date = date;
+        this.location = location;
+        this.type = type;
+        this.comment = comment;
     }
+
     //Get methods for created objects
-    getFeature() {
-        return this.feature;
-    }
-    getAttributeNumber() {
-        return this.attributeNumber;
-    }
-    getAttributeType() {
-        return this.attributeType;
+    getDate() {
+        return this.date;
     }
     getLocation() {
         return this.location;
     }
-    getDate() {
-        return this.date;
+    getType() {
+        return this.type;
     }
+    getComment() {
+        return this.comment;
+    }
+
     // Setter methods for created objects
-    setFeature(feature) {
-        this.feature = feature;
-    }
-    setAttributeNumber(attributeNumber) {
-        this.attributeNumber = attributeNumber;
-    }
-    setAttributeType(attributeType) {
-        this.attributeType = attributeType;
+    setDate(date) {
+        this.date = date;
     }
     setLocation(location) {
         this.location = location;
     }
-    setDate(date) {
-        this.date = date;
+    setType(type) {
+        this.type = type;
+    }
+    setComment(comment) {
+        this.comment = comment;
     }
 }
 
