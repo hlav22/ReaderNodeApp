@@ -24,14 +24,14 @@ exports.handler = async (event, context) => {
                 .fromFile(key)
                 .then(csvData => {
                     console.log(csvData);
-                })
+                });
 
             let stream = fs.createReadStream(key);
             let csvData = []
             let csvStream = csv
                 .parse()
                 .on('data', function (data) {
-                    dataObject = new features(data[0], data[1], data[2], data[3]);
+                    let dataObject = new featuresClass(data[0], data[1], data[2], data[3]);
                     csvData.push(dataObject);
                 })
                 .on('end', function () {
