@@ -9,25 +9,27 @@ const s3 = new aws.S3({
     apiVersion: '2006-03-01'
 }); // This API allows you to get object from bucket 
 exports.handler = async (event, context) => {
-    //const fileName = 'SampleEntry.csv';
-    const bucket = 'arn:aws:s3:::hlavput';
-    const key = 'SampleEntry.csv';
-    let fileToFormat = s3.getObject({
+    const tempWrite = '/tmp/Entry.csv';
+    const bucket = event.Records[0].s3.bucket.name;
+    const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
+    let fileToFormat = await s3.getObject({
         Bucket: bucket,
         Key: key,
-    });
-    fs.writeFile('/tmp/SampleEntry.csv'); //When writing to a directory after I get it to work, should definetly add a error check for good practice if something where to go wrong.
-    fs.access(fileToFormat, (err) => {
+    }).promise();
+    console.log(fileToFormat);
+    fs.writeFile(tempWrite);
+    console.log(tempWrite);
+    fs.access(tempWrite, (err) => {
         if (err) {
             console.log("The file does not exist or is not in CSV format.");
         } else {
             csvtojson()
-                .fromFile(fileToFormat)
+                .fromFile(tempWrite)
                 .then(csvData => {
                     console.log(csvData);
                 });
 
-            let stream = fs.createReadStream(fileToFormat);
+            let stream = fs.createReadStream(tempWrite);
             let csvData = []
             let csvStream = csv
                 .parse()
